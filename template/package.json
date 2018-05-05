@@ -14,17 +14,17 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
-    "flyio": "^0.5.5",
-    "minapp-api-promise": "^1.0.1",
-    "mpvue-router-patch": "^0.1.5",
-    "mpvue": "^1.0.10"{{#vuex}},
+    "flyio": "^0.5.7",
+    "minapp-api-promise": "^1.0.2",
+    "mpvue-router-patch": "^0.1.6",
+    "mpvue": "^1.0.11"{{#vuex}},
     "vuex": "^2.3.1"{{/vuex}}
   },
   "devDependencies": {
-    "mpvue-entry": "^0.3.7",
+    "mpvue-entry": "^1.0.1",
     "mpvue-loader": "^1.0.13",
     "mpvue-webpack-target": "^1.0.0",
-    "mpvue-template-compiler": "^1.0.10",
+    "mpvue-template-compiler": "^1.0.11",
     "portfinder": "^1.0.13",
     "postcss-mpvue-wxss": "^1.0.0",
     "px2rpx-loader": "^0.1.8",
