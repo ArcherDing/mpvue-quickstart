@@ -5,24 +5,13 @@ var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var MpvuePlugin = require('webpack-mpvue-asset-plugin')
 var glob = require('glob')
+var genEntry = require('mpvue-entry')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-function getEntry (rootSrc, pattern) {
-  var files = glob.sync(path.resolve(rootSrc, pattern))
-  return files.reduce((res, file) => {
-    var info = path.parse(file)
-    var key = info.dir.slice(rootSrc.length + 1) + '/' + info.name
-    res[key] = path.resolve(file)
-    return res
-  }, {})
-}
-
-const appEntry = { app: resolve('./src/main.js') }
-const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
-const entry = Object.assign({}, appEntry, pagesEntry)
+const entry = genEntry('./src/router/routes.js')
 
 module.exports = {
   // 如果要自定义生成的 dist 目录里面的文件路径，
@@ -44,7 +33,9 @@ module.exports = {
       // 'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
       'vue': 'mpvue',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'flyio': 'flyio/dist/npm/wx',
+      'wx': resolve('src/plugins/wx')
     },
     symlinks: false
   },
@@ -68,7 +59,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src'), resolve('test'), resolve('node_modules/mpvue-entry')],
         use: [
           'babel-loader',
           {
