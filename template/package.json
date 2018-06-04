@@ -16,14 +16,14 @@
   "dependencies": {
     "flyio": "^0.5.7",
     "minapp-api-promise": "^1.0.2",
-    "mpvue-router-patch": "^0.1.6",
+    "mpvue-router-patch": "^0.2.1",
     "mpvue": "^1.0.11"{{#vuex}},
     "vuex": "^2.3.1"{{/vuex}}
   },
   "devDependencies": {
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
-    "mpvue-entry": "^0.3.7",
+    "mpvue-entry": "1.2.2",
     "mpvue-loader": "^1.0.13",
     "mpvue-webpack-target": "^1.0.0",
     "mpvue-template-compiler": "^1.0.11",
